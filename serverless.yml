@@ -1,0 +1,25 @@
+service: lamda-test # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  writeMovie:
+    handler: handler.writeMovie
+    events:
+      - http:
+          path: /
+          method: post
+  readAllMovies:
+    handler: handler.readAllMovies
+    events:
+      - http:
+         path: /readAll
+         method: get
+  updateMovie:
+    handler: handler.updateMovie
+    events:
+      - http:
+        path: /update
+        method: put
